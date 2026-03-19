@@ -1,4 +1,4 @@
-﻿import time
+import time
 import random
 import re
 from playwright.sync_api import sync_playwright
@@ -237,7 +237,7 @@ def run_bot():
 
             browser_context = p.chromium.launch_persistent_context(
                 user_data_dir=user_data_dir,
-                headless=True, # MUST be True for Cloud
+                headless=is_cloud, # Will be False on Windows, True on Render
                 viewport={"width": 1280, "height": 720},
                 args=browser_args
             )
