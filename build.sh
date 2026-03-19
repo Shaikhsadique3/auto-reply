@@ -6,7 +6,8 @@ echo "Installing Python dependencies..."
 pip install -r requirements.txt
 
 echo "Installing Playwright browsers..."
-# Let Playwright install in its default cache directory where it expects it to be
+# Store playwright browsers in a cacheable path
+export PLAYWRIGHT_BROWSERS_PATH=/opt/render/project/playwright
 playwright install chromium
 
 echo "Build script completed successfully."
