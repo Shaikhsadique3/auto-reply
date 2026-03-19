@@ -227,6 +227,10 @@ def run_bot():
             # Check if running on cloud (Render/Linux) or Local
             is_cloud = os.environ.get("RENDER") == "true" or not os.name == 'nt'
             
+            # If on cloud, make sure Playwright knows where to find the browser
+            if is_cloud:
+                os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/opt/render/project/playwright"
+            
             # Add arguments to make it run smoothly on cloud/headless
             browser_args = [
                 "--disable-blink-features=AutomationControlled",
