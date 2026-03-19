@@ -1,0 +1,36 @@
+[0319/175506.755:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175506.803:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175506.803:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175506.972:INFO:CONSOLE:354] "[.WebGL-0x3c2c00723100]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://x.com/home (354)
+[0319/175506.979:INFO:CONSOLE:366] "No available adapters.", source: https://x.com/home (366)
+[0319/175507.083:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175510.302:INFO:CONSOLE:81] "[GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used.", source: https://accounts.google.com/gsi/client (81)
+[0319/175514.848:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175514.872:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175514.872:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175514.934:INFO:CONSOLE:354] "[.WebGL-0x3c2c0681a200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://x.com/login (354)
+[0319/175514.940:INFO:CONSOLE:354] "No available adapters.", source: https://x.com/login (354)
+[0319/175515.079:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175516.991:INFO:CONSOLE:81] "[GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used.", source: https://accounts.google.com/gsi/client (81)
+[0319/175521.240:INFO:CONSOLE:81] "[GSI_LOGGER]: google.accounts.id.initialize() is called multiple times. This could cause unexpected behavior and only the last initialized instance will be used.", source: https://accounts.google.com/gsi/client (81)
+[0319/175612.749:WARNING:content\browser\renderer_host\media\service_video_capture_provider.cc:111] Detected crash of video capture service
+[0319/175617.768:INFO:CONSOLE:0] "The AudioContext encountered an error from the audio device or the WebAudio renderer.", source: https://x.com/i/flow/login (0)
+[0319/175617.768:INFO:CONSOLE:0] "The AudioContext encountered an error from the audio device or the WebAudio renderer.", source: https://x.com/i/flow/login (0)
+[0319/175627.829:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[0319/175632.804:WARNING:content\browser\renderer_host\media\service_video_capture_provider.cc:111] Detected crash of video capture service
+[0319/175632.839:ERROR:content\browser\gpu\gpu_process_host.cc:996] GPU process exited unexpectedly: exit_code=-1073741510
+[0319/175632.839:WARNING:content\browser\gpu\gpu_process_host.cc:1438] The GPU process has crashed 1 time(s)
+[0319/175643.622:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175643.670:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175643.670:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175643.837:INFO:CONSOLE:354] "[.WebGL-0x123402a04000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://x.com/home (354)
+[0319/175643.939:INFO:CONSOLE:0] "No available adapters.", source: https://x.com/home (0)
+[0319/175643.962:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175644.325:INFO:CONSOLE:0] "Access to XMLHttpRequest at 'https://api.x.com/1.1/onboarding/task.json?redirect_after_login=%2Fhome&flow_name=login' from origin 'https://x.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.", source: https://x.com/i/flow/login?redirect_after_login=%2Fhome (0)
+[0319/175649.855:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175649.880:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175649.880:ERROR:content\public\browser\web_contents_delegate.cc:302] WebContentsDelegate::CheckMediaAccessPermission: Not supported.
+[0319/175649.899:INFO:CONSOLE:354] "[.WebGL-0x123400119400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://x.com/login (354)
+[0319/175650.014:INFO:CONSOLE:0] "No available adapters.", source: https://x.com/login (0)
+[0319/175650.029:INFO:CONSOLE:1] "Error", source: https://abs.twimg.com/responsive-web/client-web/vendor.d174fd1a.js (1)
+[0319/175650.547:INFO:CONSOLE:0] "Access to XMLHttpRequest at 'https://api.x.com/1.1/onboarding/task.json?flow_name=login' from origin 'https://x.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.", source: https://x.com/i/flow/login (0)
