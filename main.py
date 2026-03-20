@@ -1,4 +1,4 @@
-﻿import time
+import time
 import random
 import re
 from playwright.sync_api import sync_playwright
@@ -15,9 +15,9 @@ model = genai.GenerativeModel('gemini-1.5-pro')
 EMAIL = os.getenv("X_EMAIL")
 PASSWORD = os.getenv("X_PASSWORD")
 
-# 6. Tweet Source Upgrade - High Value Keywords
+# 6. Tweet Source Upgrade - High Value Keywords (Focus on Metrics & Pain)
 KEYWORDS = [
-    # Pain Points (Good for FirstWin promotion)
+    # Pain Points (Layer 1 - High Intent)
     '"activation rate" saas',
     '"trial conversion drop"',
     '"users not converting"',
@@ -25,24 +25,18 @@ KEYWORDS = [
     '"churn rate is killing me"',
     '"user retention saas"',
     '"trial to paid conversion"',
-    # Launches & Milestones (Good for networking/followers)
-    '"launching my saas"',
-    '"just launched on product hunt"',
-    '"hit 1k MRR"',
-    '"building in public"',
-    '"first paying customer"',
-    # General SaaS
-    '"indie hacker saas"'
+    '"PMF struggle"',
+    '"drop off before value"'
 ]
 
-# 1. Intent Detection
+# 1. Intent Detection (Strict Qualification)
 def check_intent(tweet):
     prompt = f"""
-Classify this tweet:
+Classify this tweet strictly based on these rules:
 
-1 = SaaS problem
-2 = SaaS discussion
-3 = noise
+1 = High Intent: The user is a SaaS founder talking about a SPECIFIC problem, metric, frustration, or confusion regarding activation, onboarding, conversion, or churn. (e.g., "our activation dropped", "users not converting", "trial to paid is low")
+2 = Discussion: General SaaS discussion or milestones (e.g., "just launched", "hit 1k MRR").
+3 = Noise: Anything else, self-promotion, or irrelevant.
 
 Tweet:
 {tweet}
@@ -79,30 +73,24 @@ Answer 'yes' or 'no'.
         print("Founder check error:", e)
         return False
 
-# 4. Reply Engine V2 & 5. Smart Product Promotion
+# 4. Reply Engine V2 & 5. Smart Product Promotion (Layer 2 - Smart Replies)
 def generate_reply(tweet, intent, founder):
     prompt = f"""
-You are a SaaS founder.
+You are a SaaS founder replying to another founder.
+Your goal is to START A CONVERSATION, not to sell or give generic advice.
 
-Write a reply:
-- specific to this tweet
-- show understanding
-- give 1 insight or question
-- 1–2 lines
-- no generic advice
+Rules for the reply:
+- DO NOT mention any product (No FirstWin, no selling).
+- Be specific and thoughtful based on their exact tweet.
+- Use one of these patterns:
+  1. Diagnostic Question (e.g., "Looks like drop before first value. Are users hitting any meaningful outcome in session 1?")
+  2. Observation + Hypothesis (e.g., "Feels like onboarding isn't guiding them to a clear win. Are they just exploring instead of achieving something?")
+  3. Experience based (e.g., "We've seen this a lot. Most users leave before they reach their first real result.")
+- Keep it to 1-2 lines maximum.
+- Tone: Empathetic, analytical, peer-to-peer.
 
 Tweet:
 {tweet}
-"""
-    # Smart Product Promotion Rule
-    if intent == 1 and founder:
-        prompt += """\n
-If relevant, mention FirstWin naturally as something you built to solve this.
-No selling.
-Example:
-We’ve seen this a lot.
-Users drop before hitting their first result.
-That’s exactly why we built FirstWin.
 """
     try:
         response = model.generate_content(prompt)
@@ -166,19 +154,17 @@ def process_tweet(page, browser_context, tweet, replies_done):
         founder = is_founder(bio)
         print(f"Is Founder?: {founder}")
 
-        # 3. Priority Scoring Engine
+        # 3. Priority Scoring Engine (Strictly targeting Founders with Problems)
         score = 0
         if intent == 1:
             score += 50
         if founder:
-            score += 30
-        if likes > 5:
-            score += 20
+            score += 50 # Increased weight for founder
 
         print(f"Final Priority Score: {score}")
 
-        # Rule: if score >= 70 then reply
-        if score >= 70:
+        # Rule: ONLY reply if score is 100 (Must be Founder AND Intent 1)
+        if score >= 100:
             reply = generate_reply(text, intent, founder)
             if not reply:
                 return replies_done
@@ -289,8 +275,8 @@ def run_bot():
                 print("Already logged in! Using saved session.")
 
             replies_done = 0
-            # Safety limit: Maximum 100 replies per day to avoid suspension
-            MAX_DAILY_REPLIES = 100
+            # Safety limit: Maximum 40 replies per day for quality and safety
+            MAX_DAILY_REPLIES = 40
 
             # 7. Daily Strategy - V2 limits with Feed Checking
             while replies_done < MAX_DAILY_REPLIES: 
